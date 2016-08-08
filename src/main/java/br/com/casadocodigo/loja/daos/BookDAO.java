@@ -5,7 +5,8 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
+
+import org.hibernate.jpa.QueryHints;
 
 import br.com.casadocodigo.loja.models.Book;
 
@@ -20,15 +21,22 @@ public class BookDAO {
 	}
 	
 	public List<Book> list() {
-		return manager.createQuery("select distinct(b) from Book b join fetch b.authors",Book.class).getResultList();
+		return manager.createQuery("select distinct(b) from Book b join fetch b.authors",Book.class)
+				.setHint(QueryHints.HINT_CACHEABLE, true)
+				.getResultList();
 	}
 	
 	public List<Book> olderBooks() {
-		return manager.createQuery("select b from Book b",Book.class).setMaxResults(20).getResultList();
+		return manager.createQuery("select b from Book b",Book.class)
+				.setMaxResults(20)
+				.setHint(QueryHints.HINT_CACHEABLE, true)
+				.getResultList();
 	}
 	
 	public List<Book> lastReleases() {
-		return manager.createQuery("select b from Book b where b.releaseDate<=NOW()",Book.class).getResultList();
+		return manager.createQuery("select b from Book b where b.releaseDate<=NOW()",Book.class)
+				.setHint(QueryHints.HINT_CACHEABLE, true)
+				.getResultList();
 	}
 	
 	public BookDAO() {}
