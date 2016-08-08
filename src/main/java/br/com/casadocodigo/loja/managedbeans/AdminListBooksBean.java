@@ -20,6 +20,7 @@ public class AdminListBooksBean {
 	@PostConstruct
 	public void loadObjects() {
 		this.books = bookDAO.list();
+//		System.out.println("opa");
 	}
 	
 	public List<Book> getBooks() {
