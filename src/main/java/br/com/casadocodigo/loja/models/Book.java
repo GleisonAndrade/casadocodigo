@@ -40,6 +40,9 @@ public class Book {
 	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar releaseDate;
+	@ManyToMany
+	@Size(min=1)
+	private List<Author> authors = new ArrayList<>();
 	
 	private String summaryPath;
 	
@@ -50,10 +53,6 @@ public class Book {
 	public void setSummaryPath(String summaryPath) {
 		this.summaryPath = summaryPath;
 	}
-
-	@ManyToMany
-	@Size(min=1)
-	private List<Author> authors = new ArrayList<>();
 	
 	public void add(Author author) {
 		this.authors.add(author);

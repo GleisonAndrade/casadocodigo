@@ -3,8 +3,28 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 	<h:head>
 		<title>Listagem</title>
+		<style>
+			* {font-family: Sans-serif;}
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+			
+			th, td {
+			    text-align: left;
+			    padding: 8px;
+			}
+			
+			tr:nth-child(even){background-color: #f2f2f2}
+			
+			th {
+			    background-color: #4CAF50;
+			    color: white;
+			}
+			tr:hover, tr:hover td {background-color: #c8e6c9;}
+		</style>
 	</h:head>
-	<h:body>s
+	<h:body>
 		<h:messages />
 		<h:dataTable value="#{adminListBooksBean.books}" var="book">
 			<h:column>
@@ -17,16 +37,11 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Sumario</f:facet>
-				<h:outputLink value="#{request.contextPath}/#{book.summaryPath}">#{book.summaryPath}</h:outputLink>
+				<h:outputLink value="#{book.summaryPath}">#{book.summaryPath}</h:outputLink>
 				
-			</h:column>
-			<h:column style="width:300px;">
-				<f:facet name="header">Data de Lancamento</f:facet>
-				#{book.releaseDate}
 			</h:column>
 			<h:column>
 				<f:facet name="header">Autores</f:facet>
-				
 					<ui:repeat var="#{book.authors}" value="author">
 						#{author.name} | 
 					</ui:repeat>

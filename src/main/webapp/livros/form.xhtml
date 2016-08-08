@@ -49,8 +49,8 @@
 			</div>
 			<div>
 				<h:outputLabel>Data de Lancamento</h:outputLabel>
-				<h:inputText value="#{adminBooksBean.product.releaseDate}" pt:type="date" />
-				<h:message for="autores" />
+				<h:inputText id="dataLancamento" value="#{adminBooksBean.product.releaseDate}" pt:type="date" />
+				<h:message for="dataLancamento" />
 			</div>
 			<h:commandButton value="Gravar" action="#{adminBooksBean.save()}" />
 		</h:form>

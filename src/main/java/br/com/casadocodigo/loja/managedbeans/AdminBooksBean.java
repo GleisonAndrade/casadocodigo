@@ -55,7 +55,7 @@ public class AdminBooksBean {
 	
 	@Transactional
 	public String save() {
-		String summaryPath = fileSaver.write("summaries", summary);
+		String summaryPath = fileSaver.write("summary", summary);
 		product.setSummaryPath(summaryPath);
 		bookDAO.save(product);
 		messagesHelper.addFlash(new FacesMessage("Cadastro Efetuado com Sucesso"));

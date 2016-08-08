@@ -87,12 +87,12 @@
 	<section id="index-section" class="container middle">
 		<ul id="home-highlight-collection">
 			<ui:repeat var="book" value="#{homeBean.lastReleases()}">
-				<li class="col-left"><a href="/products/livro-plsql"
-					class="block clearfix"> <img width="170" height="240"
-					src="#{book.coverPath}"
-					alt=" #{book.title}" title="#{book.title}"/>
-					<h2 class="product-title">#{book.title}</h2> <small
-						class="buy-button">Lan&#231;amento!</small></a>
+				<li class="col-left">
+					<a href="#{request.contextPath}/detalhe.xhtml?id=#{book.id}" class="block clearfix">
+						<img width="170" height="240" src="#{book.summaryPath}" alt=" #{book.title}" title="#{book.title}"/>
+						<h2 class="product-title">#{book.title}</h2> 
+						<small class="buy-button">Lan&#231;amento!</small>
+					</a>
 				</li>
 			</ui:repeat>
 		</ul>
@@ -103,13 +103,10 @@
 		<ul class="clearfix book-collection">
 
 			<ui:repeat var="book" value="#{homeBean.olderBooks()}">
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">#{book.title}</h2> <img width="143"
-					height="202"
-					src="#{book.coverPath}"
-					alt="#{book.title}"
-					title="#{book.title}"/><small
-					class="buy-button">Compre</small>
+			<li><a href="#{request.contextPath}/detalhe.xhtml?id=#{book.id}" class="block clearfix">
+					<h2 class="product-title">#{book.title}</h2>
+					<img width="143" height="202" src="#{book.summaryPath}" alt="#{book.title}" title="#{book.title}"/>
+					<small class="buy-button">Compre</small>
 			</a></li>
 			</ui:repeat>
 		</ul>
