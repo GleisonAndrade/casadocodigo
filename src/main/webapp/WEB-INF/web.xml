@@ -28,4 +28,29 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <login-config>
+  	<auth-method>FORM</auth-method>
+  	<form-login-config>
+  		<form-error-page>/users/login.xhtml</form-error-page>
+  		<form-login-page>/users/login.xhtml</form-login-page>
+  	</form-login-config>
+  </login-config>
+  
+  <security-constraint>
+  	<display-name>ADM</display-name>
+  	<web-resource-collection>
+  		<url-pattern>/livros/</url-pattern>
+  		<http-method>GET</http-method>
+  		<http-method>POST</http-method>
+  	</web-resource-collection>
+  	<auth-constraint>
+  		<role-name>ADMIN</role-name>
+  	</auth-constraint>
+  </security-constraint>
+  
+  <security-role>
+  	<role-name>ADMIN</role-name>
+  </security-role>
+  
 </web-app>

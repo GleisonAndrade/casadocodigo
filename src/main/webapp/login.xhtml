@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+    	 	form {display:block; margin:0px auto;}
+    	 	form > div {margin: 10px auto;}
+    	 	label {display:block;}
+    	 	input[type=text], textarea, select {min-width:300px;padding:4px 6px;font-size:1.1em;}
+    	 	input[type=button], input[type=submit] {padding:8px 12px;}
+    	 </style>
+	</head>
+	<body>
+		<form method="POST" action="${request.getContextPath()}/j_security_path">
+			<div>
+				<label for="j_username">Usuario</label>
+				<input type="email" id="j_username" name="j_username" />
+			</div>
+			<div>
+				<label for="j_password">Senha</label>
+				<input type="password" id="j_password" name="j_password" />
+			</div>
+			<div>
+				<input type="submit" value="Login" />
+			</div>
+		</form>
+	</body>
+</html>
