@@ -24,7 +24,11 @@ public class BookList {
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			List<Book> books = objectMapper.readValue(json, new TypeReference<List<Book>>() {});
-			books.forEach((Book book) -> System.out.println(book.getTitle()));
+			books.forEach(
+				(Book book) -> 
+					System.out.println("Livro "+book.getId()+":\n - Titulo: " + book.getTitle()
+							+"\n - Autor: " + book.getAuthors().get(0).getName())
+			);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
