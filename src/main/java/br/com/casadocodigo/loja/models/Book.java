@@ -36,7 +36,6 @@ public class Book {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@XmlAttribute
 	private Integer id;
 	@NotBlank
 	private String title;

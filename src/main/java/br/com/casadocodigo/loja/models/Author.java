@@ -13,7 +13,6 @@ public class Author {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@XmlAttribute
 	private Integer id;
 	private String name;
 	
