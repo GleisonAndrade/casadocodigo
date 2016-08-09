@@ -9,6 +9,10 @@
     <servlet-name>jsf</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  <context-param>
+   <param-name>org.omnifaces.CACHE_SETTING_APPLICATION_TTL</param-name>
+   <param-value>900</param-value>
+  </context-param>
   <welcome-file-list>
     <welcome-file>index.xhtml</welcome-file>
     <welcome-file>index.html</welcome-file>

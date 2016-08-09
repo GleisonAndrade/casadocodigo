@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAttribute;
 
 @Entity
 @Cacheable
@@ -12,6 +13,7 @@ public class Author {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@XmlAttribute
 	private Integer id;
 	private String name;
 	
