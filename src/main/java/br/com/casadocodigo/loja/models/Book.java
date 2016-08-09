@@ -28,6 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Cacheable
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -36,6 +38,7 @@ public class Book {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@XmlAttribute
 	private Integer id;
 	@NotBlank
 	private String title;
@@ -54,6 +57,7 @@ public class Book {
 	@Size(min=1)
 	@XmlElement(name="author")
 	@XmlElementWrapper(name="authors")
+	@JsonProperty("author")
 	private List<Author> authors = new ArrayList<>();
 	
 	private String summaryPath;
