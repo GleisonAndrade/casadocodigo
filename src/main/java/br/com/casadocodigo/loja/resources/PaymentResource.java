@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 import br.com.casadocodigo.loja.daos.CheckoutDAO;
+import br.com.casadocodigo.loja.infra.MailSender;
 import br.com.casadocodigo.loja.models.Checkout;
 import br.com.casadocodigo.loja.services.PaymentGateway;
 
@@ -29,6 +30,8 @@ public class PaymentResource {
 	private PaymentGateway paymentGateway;
 	@Inject 
 	private ServletContext servletContext;
+	@Inject 
+	private MailSender mailSender;
 	@Resource(name="java:comp/DefaultManagedExecutorService")
 	private ManagedExecutorService managedExecutorService;
 	
@@ -42,10 +45,17 @@ public class PaymentResource {
 			
 			try {
 				paymentGateway.pay(total);
+				mailSender.send(
+						"sac@casadocodigo.com.br", 
+						checkout.getBuyer().getEmail(), 
+						"Nova compra efetuada", 
+						"Compra efetuada com sucesso! Guarde o ID de compra: "+uuid);
+				
 				URI redirectURI = UriBuilder.fromUri(contextPath+"/index.xhtml")
 						.queryParam("msg","Compra realizada com sucesso").build();
 				
 				Response response = Response.seeOther(redirectURI).build();
+				
 				ar.resume(response);
 			} catch (Exception e) {
 				ar.resume(new WebApplicationException(e));
