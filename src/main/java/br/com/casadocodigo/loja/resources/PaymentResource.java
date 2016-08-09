@@ -48,8 +48,9 @@ public class PaymentResource {
 				mailSender.send(
 						"sac@casadocodigo.com.br", 
 						checkout.getBuyer().getEmail(), 
-						"Nova compra efetuada", 
-						"Compra efetuada com sucesso! Guarde o ID de compra: "+uuid);
+						"Nova compra efetua com Sucesso!", 
+						"Compra efetuada com sucesso! Guarde o ID de compra: "+uuid
+						+"<br/><br/>Boas compras! ã ");
 				
 				URI redirectURI = UriBuilder.fromUri(contextPath+"/index.xhtml")
 						.queryParam("msg","Compra realizada com sucesso").build();
