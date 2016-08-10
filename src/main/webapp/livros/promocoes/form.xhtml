@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pt="http://java.sun.com/jsf/passthrough">
+    <h:head>
+    	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	 <style>
+    	 	form {display:block; margin:0px auto;}
+    	 	form > div {margin: 10px auto;}
+    	 	label {display:block;}
+    	 	input[type=text], textarea, select {min-width:300px;padding:4px 6px;font-size:1.1em;}
+    	 	input[type=button], input[type=submit] {padding:8px 12px;}
+    	 </style>
+    </h:head>
+	<h:body>
+		<h:form prependId="false">
+			<div>
+				<h:outputLabel>Titulo</h:outputLabel>
+				<h:inputText id="titulo" required="true" value="#{adminSalesBean.sale.title}"></h:inputText>
+				<h:message for="titulo" />
+			</div>
+			<div>
+				<h:outputLabel>Livro</h:outputLabel>
+				<h:selectOneMenu id="livros" value="#{adminSalesBean.sale.book.id}" >
+					<f:selectItems value="#{adminListBooksBean.books}" var="book" itemLabel="#{book.title}" itemValue="#{book.id}" />
+				</h:selectOneMenu>
+				<h:message for="livros" />
+			</div>
+			<h:commandButton value="Gravar" action="#{adminSalesBean.save()}" />
+		</h:form>
+	</h:body>
+</html>

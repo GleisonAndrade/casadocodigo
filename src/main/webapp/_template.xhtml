@@ -50,8 +50,21 @@
 <body class="#{bodyClass}">
 	<ui:include src="/_head.xhtml" />
 	
+	<h:messages />
+	
 	<ui:insert name="body" />
 	
 	<ui:include src="/_footer.xhtml" />
+	<script>
+		var salesChannel = new WebSocket("ws://localhost:8080#{request.contextPath}/channel/sales");
+		salesChannel.onmessage = function (message) {
+			//console.log(message);
+			var newSale = JSON.parse(message.data);
+			if (confirm("Quer participar da seguinte promocao: " + newSale.title + "?")) {
+				document.location.href="#{request.contextPath}/detalhe.xhtml?id=" + newSale.bookId;
+				
+			}
+		}
+	</script>
 </body>
 </html>
