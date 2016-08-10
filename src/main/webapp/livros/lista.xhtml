@@ -4,7 +4,13 @@
 	<h:head>
 		<title>Listagem</title>
 		<style>
+			body, html {margin:0px;}
 			* {font-family: Sans-serif;}
+			div{padding:4px 6px;margin-bottom:8px;}
+			h3{margin:0px;padding:4px 8px;text-align: center;background: #4CAF50;
+				color:white;display:inline-block;
+				border-radius: 0px 0px 4px 4px;}
+			h3span {color:#eee;}
 			table {
 			    border-collapse: collapse;
 			    width: 100%;
@@ -16,38 +22,42 @@
 			}
 			
 			tr:nth-child(even){background-color: #f2f2f2}
+			tr td:first-child {width:70px;}
 			
 			th {
 			    background-color: #4CAF50;
 			    color: white;
 			}
 			tr:hover, tr:hover td {background-color: #c8e6c9;}
+			.greetings {text-align:center;margin:0px auto;padding:0px;padding-bottom:8px;}
 		</style>
 	</h:head>
 	<h:body>
+		<div class="greetings">
+			<h3>Seja bem vindo, <span>#{currentUser.get().email}</span></h3>
+		</div>
 		<h:messages />
-		<h:dataTable value="#{adminListBooksBean.books}" var="book">
-			<h:column>
-				<f:facet name="header">Titulo</f:facet>
-				#{book.title}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Preco</f:facet>
-				#{book.price}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Sumario</f:facet>
-				<h:outputLink value="#{book.summaryPath}">#{book.summaryPath}</h:outputLink>
-				
-			</h:column>
-			<h:column>
-				<f:facet name="header">Autores</f:facet>
-					<ui:repeat var="#{book.authors}" value="author">
-						#{author.name} | 
-					</ui:repeat>
-				
-			</h:column>
-		</h:dataTable>
-		
+		<div>
+			<h:dataTable value="#{adminListBooksBean.books}" var="book">
+				<h:column style="width:70px;">
+					<a href="#{book.summaryPath}"><img src="#{book.summaryPath}" style="height:80px;width:70px;" /></a>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Titulo</f:facet>
+					#{book.title}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Preco</f:facet>
+					#{book.price}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Autores</f:facet>
+						<ui:repeat var="#{book.authors}" value="author">
+							#{author.name} | 
+						</ui:repeat>
+					
+				</h:column>
+			</h:dataTable>
+		</div>
 	</h:body>
 </html>

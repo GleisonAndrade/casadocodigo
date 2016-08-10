@@ -20,13 +20,13 @@ public class ShoppingCartBean {
 		Book book = bookDAO.findById(id);
 		ShoppingItem item = new ShoppingItem(book);
 		shoppingCart.add(item);
-		return "/carrinho?faces-redirect-true";
+		return "/carrinho?faces-redirect=true";
 	}
 	
 	public String remove(Integer id) {
 		Book book = bookDAO.findById(id);
 		ShoppingItem item = new ShoppingItem(book);
 		shoppingCart.remove(item);
-		return "/carrinho?faces-redirect-true";
+		return "/carrinho?faces-redirect=true";
 	}
 }
