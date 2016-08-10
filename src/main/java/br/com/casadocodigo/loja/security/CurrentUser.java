@@ -13,8 +13,8 @@ import br.com.casadocodigo.loja.models.SystemUser;
 public class CurrentUser {
 	@Inject 
 	HttpServletRequest request;
-	//@Inject
-	//private SystemUserDAO securityDAO;
+	@Inject
+	private SecurityDAO securityDAO;
 	private SystemUser systemUser;
 	
 	public SystemUser get() {
@@ -25,8 +25,11 @@ public class CurrentUser {
 	private void load() {
 		Principal principal = request.getUserPrincipal();
 		if (principal!=null) {
-			//TODO: Continuar
-			//this.systemUser = securityDAO.fin
+			this.systemUser = securityDAO.loadByUserName(principal.getName());
 		}
+	}
+	
+	public boolean hasRole(String name) {
+		return request.isUserInRole(name);
 	}
 }

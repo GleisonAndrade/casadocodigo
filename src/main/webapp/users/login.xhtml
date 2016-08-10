@@ -5,12 +5,12 @@
     	 	form {display:block; margin:0px auto;}
     	 	form > div {margin: 10px auto;}
     	 	label {display:block;}
-    	 	input[type=text], textarea, select {min-width:300px;padding:4px 6px;font-size:1.1em;}
+    	 	input[type=text], input[type=email], input[type=password], textarea, select {min-width:300px;padding:4px 6px;font-size:1.1em;}
     	 	input[type=button], input[type=submit] {padding:8px 12px;}
     	 </style>
 	</head>
 	<body>
-		<form method="POST" action="${request.getContextPath()}/j_security_path">
+		<form method="POST" action="${request.getContextPath()}/j_security_check">
 			<div>
 				<label for="j_username">Usuario</label>
 				<input type="email" id="j_username" name="j_username" />

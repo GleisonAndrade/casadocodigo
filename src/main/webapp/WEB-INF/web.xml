@@ -40,7 +40,7 @@
   <security-constraint>
   	<display-name>ADM</display-name>
   	<web-resource-collection>
-  		<url-pattern>/livros/</url-pattern>
+  		<url-pattern>/livros/*</url-pattern>
   		<http-method>GET</http-method>
   		<http-method>POST</http-method>
   	</web-resource-collection>
