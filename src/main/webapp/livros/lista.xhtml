@@ -34,7 +34,11 @@
 	</h:head>
 	<h:body>
 		<div class="greetings">
-			<h3>Seja bem vindo, <span>#{currentUser.get().email}</span></h3>
+			<h3>
+				<h:outputFormat value="#{msg.usuarios_bemVindo}">
+					<f:param value="#{currentUser.get().email}" />
+				</h:outputFormat>
+			</h3>
 		</div>
 		<h:messages />
 		<div>
