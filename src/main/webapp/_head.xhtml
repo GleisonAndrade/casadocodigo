@@ -17,7 +17,18 @@
 						</c:if>
 						<li><a href="/cart" rel="nofollow"><h:outputText value="${msg.menuPrincipal_seuCarrinho}"/></a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow"><h:outputText value="${msg.menuPrincipal_sobre}"/></a></li>
-						<li><a href="/pages/perguntas-frequentes" rel="nofollow"><h:outputText value="${msg.menuPrincipal_perguntasFrequentes}"/></a></li>'
+						<li><a href="/pages/perguntas-frequentes" rel="nofollow"><h:outputText value="${msg.menuPrincipal_perguntasFrequentes}"/></a></li>
+						
+						<li>
+						 <h:form id="language1">
+						  <h:commandLink id="changeLocalePT" action="#{i18nBean.changeLocale('pt')}" value="#{msg.lingua_pt}" />
+						 </h:form>
+						</li>
+						<li>
+						 <h:form id="language2">
+						  <h:commandLink id="changeLocaleEN" action="#{i18nBean.changeLocale('en')}" value="#{msg.lingua_en}" />
+						 </h:form>
+						</li>
 					</ul>
 				</nav>
 			</div>
