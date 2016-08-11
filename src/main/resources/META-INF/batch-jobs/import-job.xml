@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="import-job" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/jobXML_1_0.xsd"
+    version="1.0">
+    <step id="importar_usuario">
+     	<chunk>
+     		<reader ref="userReader" />
+     		<processor ref="userProcessor" />
+     		<writer ref="userWriter" />
+     	</chunk>
+    </step>
+</job>

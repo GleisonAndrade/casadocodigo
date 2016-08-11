@@ -1,0 +1,22 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="/_template.xhtml">
+	<ui:param name="title" value="CasadoCodigo" />
+	<ui:define name="extraCss">
+	
+	</ui:define>
+	<ui:define name="body">
+		<f:metadata>
+			<f:viewParam id="jobExecutionId" name="jobExecutionId" value="#{monitorJobBean.jobExecutionId}"/>
+			<f:viewAction action="#{productDetailBean.loadBook()}"></f:viewAction>	
+		</f:metadata>
+		
+	</ui:define>
+</ui:composition>
+</html>
