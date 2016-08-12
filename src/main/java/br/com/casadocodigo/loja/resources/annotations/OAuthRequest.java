@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 import javax.ws.rs.NameBinding;
 
+
 @NameBinding
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})

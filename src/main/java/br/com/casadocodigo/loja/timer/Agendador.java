@@ -1,4 +1,4 @@
-package org.casadocodigo.timer;
+package br.com.casadocodigo.loja.timer;
 
 import java.util.Properties;
 
